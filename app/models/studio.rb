@@ -1,2 +1,0 @@
-class Studio < ApplicationRecord
-end

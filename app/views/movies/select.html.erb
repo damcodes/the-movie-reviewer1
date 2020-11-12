@@ -1,0 +1,6 @@
+<h1>Enter Movie Title</h1>
+
+<%= form_tag(movies_path, method: 'get') do %>
+  <%= text_field_tag :movie_title, nil, placeholder: 'Enter Title' %>
+  <%= submit_tag "Show Movies" %>
+<% end %>

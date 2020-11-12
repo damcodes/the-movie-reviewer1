@@ -1,0 +1,12 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<%end%>
+
+<% if @user %>
+  <h1>Welcome to The Movie Reviewer, <%="#{@user.first_name}"%>!</h1>
+  <%= link_to "Your Reviews", reviews_path %><br>
+  <%= link_to "Review a Movie", select_movie_path %><br>
+  <%= link_to "Logout", logout_path %><br>
+<% else %>
+  <h1>Welcome to The Movie Reviewer</h1>
+<%end%>

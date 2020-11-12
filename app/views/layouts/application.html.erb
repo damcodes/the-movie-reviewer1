@@ -10,5 +10,15 @@
 
   <body>
     <%= yield %>
+    
+    <% if !session[:logged_in] %>
+      <%= link_to "New User? Register here.", new_user_path %><br>
+      <%= link_to "Returning User? Login.", login_path %>
+    <% else %>
+      <%= link_to "Home", root_path %><br>
+    <%end%>
+
+
+
   </body>
 </html>

@@ -1,0 +1,7 @@
+<h1>Your Reviews</h1>
+
+<% @reviews.each do |review| %>
+  <%= image_tag review.movie.poster %>
+  <h3><%= review.movie.title %></h3>
+  <p><%= review.content %></p>
+<%end%> 

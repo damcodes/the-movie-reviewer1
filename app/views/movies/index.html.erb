@@ -1,0 +1,7 @@
+<% @movies.each do |movie| %>
+
+  <%= image_tag movie["Poster"]  if movie["Poster"] != "N/A"%><br>
+  <p><%= movie["Title"]  %></p>
+  <p><%= movie["Year"] %></p>
+  <p><%= link_to "Review This Movie", new_movie_path(:movie => {:imdb_id => movie["imdbID"]}) %></p>
+<% end %>

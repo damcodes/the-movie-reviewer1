@@ -14,10 +14,11 @@
     <% if !session[:logged_in] %>
       <%= link_to "New User? Register here.", new_user_path %><br>
       <%= link_to "Returning User? Login.", login_path %>
+    <% else %>
+      <% unless current_page?(root_path) %>
+        <br><%= link_to "Home", root_path %><br>
+      <%end%>
     <% end %>
-    <% unless current_page?(root_path) %>
-      <%= link_to "Home", root_path %><br>
-    <%end%>
 
 
 

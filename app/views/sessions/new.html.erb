@@ -1,5 +1,9 @@
 <h1>Login</h1>
 
+<% if flash[:incorrect] %>
+  <h3 style='color:red'><%= flash[:incorrect] %></h3>
+<%end%>
+
 <%= form_with url: new_session_path do |f|%>
   Username: <%= f.text_field :username, placeholder: "Enter Username" %><br>
   Password: <%= f.password_field :password, placeholder: "Enter Password" %><br>

@@ -1,47 +1,9 @@
-<h1><%= @review.movie.title %></h1>
+<h1><%= link_to @review.movie.title, movie_path(@review.movie) %></h1>
 <%= image_tag @review.movie.poster %>
 
 <div>
-  <h3>Rating</h3>
-  <p><%= @review.movie.rated %></p>
-</div>
-
-<div>
-  <h3>Released</h3>
-  <p><%= @review.movie.released %></p>
-</div>
-
-<div>
-  <h3>Runtime</h3>
-  <p><%= @review.movie.runtime %></p>
-</div>
-
-<div>
-  <h3>Genre(s)</h3>
-  <p><%= @review.movie.genre %></p>
-</div>
-
-<div>
-  <h3>Director</h3>
-  <p><%= @review.movie.director %></p>
-</div>
-
-<div>
-  <h3>Actors</h3>
-  <p><%= @review.movie.actors %></p>
-</div>
-
-<div>
-  <h3>Plot</h3>
-  <p><%= @review.movie.plot %></p>
-</div>
-
-<div>
-  <h3>Studio</h3>
-  <p><%= @review.movie.production %></p>
-</div>
-
-<div>
-  <h3>Your Review</h3>
+  <h2>Your Review</h2>
   <p><%= @review.content %></p>
 </div>
+
+<p><%= link_to "Edit", edit_review_path(@review) %></p>

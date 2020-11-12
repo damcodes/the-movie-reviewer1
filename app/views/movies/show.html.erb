@@ -1,0 +1,55 @@
+<h1><%= @movie.title %></h1>
+<%= image_tag @movie.poster %>
+
+<div>
+  <h3>Rating</h3>
+  <p><%= @movie.rated %></p>
+</div>
+
+<div>
+  <h3>Released</h3>
+  <p><%= @movie.released %></p>
+</div>
+
+<div>
+  <h3>Runtime</h3>
+  <p><%= @movie.runtime %></p>
+</div>
+
+<div>
+  <h3>Genre(s)</h3>
+  <p><%= @movie.genre %></p>
+</div>
+
+<div>
+  <h3>Director</h3>
+  <p><%= @movie.director %></p>
+</div>
+
+<div>
+  <h3>Actors</h3>
+  <p><%= @movie.actors %></p>
+</div>
+
+<div>
+  <h3>Plot</h3>
+  <p><%= @movie.plot %></p>
+</div>
+
+<div>
+  <h3>Studio</h3>
+  <p><%= @movie.production %></p>
+</div>
+
+
+<h2>Reviews</h2>
+<ul>
+  <% @reviews.each do |review| %>
+    <p><strong><%= review.user.username %></strong></p>
+    <ul> 
+      <li><%= review.content %></li>
+    </ul>
+    <h5>----------------------------------------</h5>
+  <%end%>
+</ul>
+

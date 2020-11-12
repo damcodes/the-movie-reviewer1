@@ -24,7 +24,7 @@ class Movie < ApplicationRecord
     end
 
     def self.get_movie_details(id)
-        url = URI("https://movie-database-imdb-alternative.p.rapidapi.com/?i=#{id}&r=json")
+        url = URI("https://movie-database-imdb-alternative.p.rapidapi.com/?i=#{id}&r=json&plot=full")
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE

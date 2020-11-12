@@ -1,7 +1,10 @@
-<h1>Your Reviews</h1>
+<h1>My Reviews</h1>
 
 <% @reviews.each do |review| %>
   <%= image_tag review.movie.poster %>
-  <h3><%= review.movie.title %></h3>
+  <h3><%= link_to review.movie.title, movie_path(review.movie) %></h3>
   <p><%= review.content %></p>
+  <p><%= link_to "Edit", edit_review_path(review), method: :get %></p>
+  <p><%= link_to "Delete", [:delete, review] %></p>
+  <h4>---------------------------------------------------------</h4>
 <%end%> 

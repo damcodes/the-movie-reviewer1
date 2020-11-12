@@ -7,6 +7,8 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movie = Movie.find_by(id: params[:id])
+    @reviews = @movie.reviews
   end
 
   def new
@@ -18,7 +20,7 @@ class MoviesController < ApplicationController
       @movie = Movie.find_by(imdbid: params[:movie][:imdb_id])
     end
     session[:movie_id] = @movie.id
-    redirect_to new_review_path(:movie => {:movie_id => @movie.id})
+    redirect_to new_review_path
   end
 
   def create 

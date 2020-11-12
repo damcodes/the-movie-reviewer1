@@ -1,0 +1,12 @@
+<h1>Edit Review for <%= @review.movie.title %></h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |msg| %>
+    <p style="color:red"> <%= msg %> </p>
+  <%end%>
+<%end%>
+
+<%= form_for @review do |f| %>
+  Content: <%= f.text_area :content %><br>
+  <%= f.submit %>
+<%end%>

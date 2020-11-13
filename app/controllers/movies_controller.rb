@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
   end
 
   def unlike
-    @movie = Movie.find_by(params[:id])
+    @movie = Movie.find_by(id: params[:id])
     @like = Like.find_by(user_id: session[:user_id], movie_id: @movie.id)
     @like.destroy
     redirect_to movie_path(@movie)

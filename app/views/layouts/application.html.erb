@@ -17,7 +17,6 @@
         <div style="text-align: left; vertical-align:top"><%= link_to "Home", root_path %></div>
     <%end%>
     <%= yield %>
-    
     <% if !session[:logged_in] %>
       <div>
       <p class='login_page_options'><%= link_to "New User? Register here", new_user_path %></p>

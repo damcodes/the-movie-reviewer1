@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to The Movie Reviewer!
 
-Things you may want to cover:
+This is the app my partner, Yoel, and I built for our Flatiron School Phase 2 project.
 
-* Ruby version
+It's a simple movie reviewing app, where you can create and account, search a movie by title and write a review. 
 
-* System dependencies
+You're also able to see a list of all movies that have been reviewed by other users and a list of reviews made for each movie.
 
-* Configuration
+### Ruby version
+This app requires Ruby 2.6.1
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

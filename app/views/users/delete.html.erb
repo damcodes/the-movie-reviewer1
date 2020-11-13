@@ -1,0 +1,15 @@
+<style>
+  h2 {
+    text-align: center;
+    color: rgb(211, 41, 41);
+  }
+  div {
+    text-align: center;
+  }
+</style>
+<div>
+  <%= form_for @user, html: {method: :delete} do |f| %>
+    <h2>Are you sure you want to deactivate your account?</h2>
+    <a><%= f.submit "Delete" %></a>  <%= link_to "Cancel", root_path %>
+  <%end%>
+</div>

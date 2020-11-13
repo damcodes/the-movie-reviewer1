@@ -1,11 +1,15 @@
 <% if flash[:notice] %>
-  <p id="logged_out_notice"><%= flash[:notice] %><p>
+  <p id="logged_out_notice"><%= flash[:notice] %></p>
+<%end%>
+<% if flash[:destroyed_user] %>
+  <p id="destroyed_user_notice"><%= flash[:destroyed_user] %></p>
 <%end%>
 
 <% if @user %>
   <h1>Welcome to The Movie Reviewer, <%="#{@user.first_name}"%>!</h1>
   <div>
     <p style="text-align: left; vertical-align: top"><%= link_to "Logout", logout_path %></p>
+    <p style="text-align: left; vertical-align: top"><%= link_to "Deactivate", [:delete, @user] %></p>
     <p><%= link_to "All Reviewed Movies", reviewed_movies_path %></p>
     <p><%= link_to "My Reviews", reviews_path %></p>
     <p><%= link_to "Review a Movie", select_movie_path %></p>

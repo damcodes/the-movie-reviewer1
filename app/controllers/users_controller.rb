@@ -20,6 +20,17 @@ class UsersController < ApplicationController
     def update
     end
 
+    def delete
+      @user = User.find_by(id: session[:user_id])
+    end
+
+    def destroy
+      @user = User.find_by(id: session[:user_id])
+      @user.destroy
+      flash[:destroyed_user] = "Account deactivated"
+      redirect_to logout_path
+    end
+
     private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)

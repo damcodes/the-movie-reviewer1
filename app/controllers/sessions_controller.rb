@@ -24,8 +24,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    if !User.find_by(id: session[:user_id])
+      flash[:notice] = "You've been logged out... FOREVER"
+    else
+      flash[:notice] = "You've been logged out"
+    end
     session.delete :user_id
-    flash[:notice] = "You've been logged out"
     session[:logged_in] = false
     redirect_to root_path
   end

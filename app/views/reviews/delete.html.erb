@@ -1,4 +1,15 @@
-<%= form_for @review, html: {method: :delete} do |f| %>
-  <h2>Are you sure you want to delete this review?</h2>
-  <p><%= f.submit "Delete" %> or <%= link_to "Cancel", reviews_path %></p>
-<%end%>
+<style>
+  h2 {
+    text-align: center;
+    color: rgb(211, 41, 41);
+  }
+  div {
+    text-align: center;
+  }
+</style>
+<div>
+  <%= form_for @review, html: {method: :delete} do |f| %>
+    <h2>Are you sure you want to delete this review?</h2>
+    <a><%= f.submit "Delete" %></a>  <%= link_to "Cancel", reviews_path %>
+  <%end%>
+</div>

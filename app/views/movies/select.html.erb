@@ -1,4 +1,19 @@
+<style>
+  form {
+    text-align: center;
+  }
+  p {
+    color: rgb(211, 41, 41);
+    font-size: 20px;
+    padding: 20px;
+  }
+</style>
+
 <h1>Enter Movie Title</h1>
+
+<% if flash[:notice] %>
+  <p><strong><%= flash[:notice] %><strong></p>
+<%end%>
 
 <%= form_tag(movies_path, method: 'get') do %>
   <%= text_field_tag :movie_title, nil, placeholder: 'Enter Title' %>

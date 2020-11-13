@@ -1,9 +1,18 @@
 class MoviesController < ApplicationController
   def select 
   end
+
+  def reviewed
+    @movies = Review.all.map { |review| review.movie }.uniq
+  end
   
   def index
-    @movies = Movie.get_movies(params[:movie_title])
+    if !params[:movie_title].empty?
+      @movies = Movie.get_movies(params[:movie_title])
+    else
+      flash[:notice] = "Enter a movie title."
+      render :select
+    end
   end
 
   def show

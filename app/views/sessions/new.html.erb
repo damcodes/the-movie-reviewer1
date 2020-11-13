@@ -1,11 +1,21 @@
+<style>
+  h3 {
+    text-align: center;
+    color: rgb(211, 41, 41);
+    padding: 15px;
+  }
+</style>
+
 <h1>Login</h1>
 
 <% if flash[:incorrect] %>
-  <h3 style='color:red'><%= flash[:incorrect] %></h3>
+  <h3 style='color:red text-align:center'><strong><%= flash[:incorrect] %></strong></h3>
 <%end%>
 
 <%= form_with url: new_session_path do |f|%>
-  Username: <%= f.text_field :username, placeholder: "Enter Username" %><br>
-  Password: <%= f.password_field :password, placeholder: "Enter Password" %><br>
-  <%= f.submit "Login"  %>
+  <div>
+  <p>Username: <%= f.text_field :username, placeholder: "Enter Username" %></p>
+  <p>Password: <%= f.password_field :password, placeholder: "Enter Password" %></p>
+  <p><%= f.submit "Login"  %></p>
+  </div>
 <%end%>

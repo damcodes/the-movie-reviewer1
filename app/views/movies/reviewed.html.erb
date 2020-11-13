@@ -1,0 +1,12 @@
+<style>
+  div {
+    text-align: center;
+  }
+</style>
+
+
+<h1>Reviewed Movies</h1>
+
+<% @movies.each do |movie| %>
+  <div><%= link_to image_tag(movie.poster), movie_path(movie) %></div>
+<%end%>

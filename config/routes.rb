@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   get '/movies/select', to: 'movies#select', as: 'select_movie'
   get '/movies/:id', to: 'movies#show', as: 'movie'
   delete '/reviews/:id', to: 'reviews#destroy', as: 'destroy_review'
+  get '/reviewed-movies', to: 'movies#reviewed', as: 'reviewed_movies'
 
 end

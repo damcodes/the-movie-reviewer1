@@ -1,8 +1,14 @@
+<style>
+  form {
+    text-align: center;
+  }
+</style>
+
 <h1>New Review for <%= @movie.title %></h1>
 
 <% if flash[:errors] %>
   <% flash[:errors].each do |msg| %>
-    <p style="color:red"> <%= msg %> </p>
+    <p style="color:red"><strong> <%= msg %> </strong></p>
   <%end%>
 <%end%>
 

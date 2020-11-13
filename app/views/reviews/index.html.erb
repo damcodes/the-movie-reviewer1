@@ -1,10 +1,38 @@
+<style>
+body {
+  background-image: url(https://hollywoodtheatre.org/media/images/Repressed_Cinema.original.height-720.width-1280.jpg);
+}
+span {
+  color: white;
+  font-size: 20px;
+  border: 2px solid white;
+  box-sizing: content-box;
+  padding: 5px;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+h3 {
+  text-align: center;
+}
+div {
+  text-align: center;
+}
+
+</style>
 <h1>My Reviews</h1>
 
 <% @reviews.each do |review| %>
   <%= image_tag review.movie.poster %>
   <h3><%= link_to review.movie.title, movie_path(review.movie) %></h3>
-  <p><%= review.content %></p>
-  <p><%= link_to "Edit", edit_review_path(review), method: :get %></p>
-  <p><%= link_to "Delete", [:delete, review] %></p>
+  <div><span><%= review.content %></span></div>
+  <div>
+    <%= link_to "View", review_path(review) %>
+    <%= link_to "Edit", edit_review_path(review), method: :get %>
+    <%= link_to "Delete", [:delete, review] %>
+  </div>
   <h4>---------------------------------------------------------</h4>
 <%end%> 

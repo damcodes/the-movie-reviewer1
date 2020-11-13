@@ -1,7 +1,20 @@
+<style>
+  body {
+    background-image: url(https://hollywoodtheatre.org/media/images/Repressed_Cinema.original.height-720.width-1280.jpg);
+  }
+  div {
+    text-align: center;
+  }
+  .words {
+    color: white;
+    font-size: 25px;
+  }
+</style>
+
 <% @movies.each do |movie| %>
 
-  <%= image_tag movie["Poster"]  if movie["Poster"] != "N/A"%><br>
-  <p><%= movie["Title"]  %></p>
-  <p><%= movie["Year"] %></p>
+  <div><%= image_tag movie["Poster"]  if movie["Poster"] != "N/A"%></div>
+  <p class="words"><%= movie["Title"]  %></p>
+  <p class="words"><%= movie["Year"] %></p>
   <p><%= link_to "Review This Movie", new_movie_path(:movie => {:imdb_id => movie["imdbID"]}) %></p>
 <% end %>

@@ -1,17 +1,23 @@
+<style>
+  form {
+    text-align: center;
+  }
+</style>
+
 <h1>Sign Up</h1>
 
 <% if flash[:errors] %>
   <% flash[:errors].each do |msg| %>
-    <div style="color:red"><%= msg %></div>
+    <p style="color:red"><strong><%= msg %></strong></p>
   <%end%>
 <%end%>
 
 <%= form_for @user do |f| %>
-  First Name: <%= f.text_field :first_name, placeholder: "Enter First Name" %><br>
-  Last Name: <%= f.text_field :last_name, placeholder: "Enter Last Name" %><br>
-  Username: <%= f.text_field :username, placeholder: "Enter Username" %><br>
-  Email: <%= f.text_field :email, placeholder: "Enter Email" %><br>
-  Password: <%= f.password_field :password, placeholder: "Enter Password" %><br>
-  Password Confirmation: <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %><br>
+  <p>First Name: <%= f.text_field :first_name, placeholder: "Enter First Name" %></p>
+  <p>Last Name: <%= f.text_field :last_name, placeholder: "Enter Last Name" %></p>
+  <p>Username: <%= f.text_field :username, placeholder: "Enter Username" %></p>
+  <p>Email: <%= f.text_field :email, placeholder: "Enter Email" %></p>
+  <p>Password: <%= f.password_field :password, placeholder: "Enter Password" %></p>
+  <p>Password Confirmation: <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %><p>
   <%= f.submit "Register" %>
 <%end%>

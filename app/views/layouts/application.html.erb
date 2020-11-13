@@ -8,15 +8,24 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
+  <style>
+
+  </style>
+
   <body>
+    <% if session[:logged_in] && !current_page?(root_path) %>
+        <div style="text-align: left; vertical-align:top"><%= link_to "Home", root_path %></div>
+    <%end%>
     <%= yield %>
     
     <% if !session[:logged_in] %>
-      <%= link_to "New User? Register here.", new_user_path %><br>
-      <%= link_to "Returning User? Login.", login_path %>
+      <div>
+      <p class='login_page_options'><%= link_to "New User? Register here", new_user_path %></p>
+      <p class='login_page_options'><%= link_to "Returning User? Login", login_path %></p>
+      </div>
     <% else %>
-      <% unless current_page?(root_path) %>
-        <br><%= link_to "Home", root_path %><br>
+      <% unless current_page?(root_path) || current_page?(select_movie_path)%>
+        <div style="text-align: left; vertical-align:bottom"><%= link_to "Home", root_path %></div>
       <%end%>
     <% end %>
 

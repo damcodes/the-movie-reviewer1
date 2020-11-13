@@ -1,4 +1,9 @@
 class ReviewsController < ApplicationController
+
+  # before_action :authenticate_user, only: [:like]
+  # before_action :set_post, only: [:show, :like]
+
+
   def index
     @user = User.find_by(id: session[:user_id])
     @reviews = @user.reviews
@@ -34,6 +39,13 @@ class ReviewsController < ApplicationController
     redirect_to review_path(@review)
   end
 
+  # def like 
+  #   if !current_user.liked? @review
+  #     @review.liked_by current_user
+  #   elsif current_user.liked? @review
+  #     @review.unliked_by current_user
+  # end
+
   def delete
     @review = Review.find_by(id: params[:id])
   end
@@ -44,7 +56,17 @@ class ReviewsController < ApplicationController
     redirect_to reviews_path
   end
 
+  def like 
+    #grabbing the review
+    @review = Review.all.find(params[:id])
+    #creating a like with that post and the current users id
+    Like.create(user_id: current_user.id, review_id: @review.id)
+    #redirecting them back to that post
+    redirect_to review_path(@review)
+  end
+
   private
+
   def review_params
     x = params.require(:review).permit(:content)
     if !(params[:action] == 'update')

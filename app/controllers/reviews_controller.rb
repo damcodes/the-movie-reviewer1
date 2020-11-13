@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find_by(id: params[:id])
+    @user = User.find_by(id: session[:user_id])
   end
 
   def new      
@@ -54,15 +55,6 @@ class ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     @review.destroy 
     redirect_to reviews_path
-  end
-
-  def like 
-    #grabbing the review
-    @review = Review.all.find(params[:id])
-    #creating a like with that post and the current users id
-    Like.create(user_id: current_user.id, review_id: @review.id)
-    #redirecting them back to that post
-    redirect_to review_path(@review)
   end
 
   private

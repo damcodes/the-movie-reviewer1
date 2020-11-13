@@ -9,6 +9,16 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find_by(id: params[:id])
     @reviews = @movie.reviews
+    @user = User.find_by(id: session[:user_id])
+  end
+
+  def like 
+    #grabbing the review
+    @movie = Movie.all.find(params[:id])
+    #creating a like with that post and the current users id
+    Like.create(user_id: session[:user_id], movie_id: @movie.id)
+    #redirecting them back to that post
+    redirect_to movie_path(@movie)
   end
 
   def new

@@ -1,6 +1,16 @@
 <h1><%= @movie.title %></h1>
 <%= image_tag @movie.poster %>
 
+
+<div> Likes: <%= @movie.like_count %></div>
+<% if @movie.liked?(@user)%>
+  <%= button_to  "unlike", like_path(@movie), method: "put", disabled: true %>
+<%else%>
+  <%= button_to  "Like", like_path(@movie), method: "put" %>
+<% end %>
+
+
+
 <div>
   <h3>Rating</h3>
   <p><%= @movie.rated %></p>

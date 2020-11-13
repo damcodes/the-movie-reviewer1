@@ -1,8 +1,8 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :review
+  belongs_to :movie
   
-  validates :user_id, uniqueness: { scope: :review_id }
+  validates :user_id, uniqueness: { scope: :movie_id }
   
 
 end

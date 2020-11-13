@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :likes
+  # resources :likes
   resources :users, only: [:new, :create]
   resources :reviews, except: :destroy do
     member { get :delete}
   end
   resources :movies, only: [:index, :new, :create]
 
-  # put '/review/:id/like', to: 'reviews#like', 'like'
+  put '/movie/:id/like', to: 'movies#like', as: 'like'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get /login to sessions#new

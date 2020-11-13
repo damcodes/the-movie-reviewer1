@@ -4,6 +4,7 @@ class Movie < ApplicationRecord
     #has_many :actors, through: :role
     has_many :reviews
     has_many :users, through: :reviews
+    has_many :likes
 
     def self.get_movies(title, year=nil)
         title = title.split(' ').join('%20')
@@ -36,5 +37,13 @@ class Movie < ApplicationRecord
         %w"Writer Language Country Awards Ratings Metascore imdbRating imdbVotes Type DVD BoxOffice Website Response".each { |x| movie_hash.delete(x)}
         movie_hash = movie_hash.each_with_object({}) { |(k, v), hash| hash[k.downcase] = v }
         movie_hash.symbolize_keys!
+    end
+
+    def like_count
+      self.likes.count
+    end
+
+    def liked?(user)
+      !!self.likes.find{|like| like.user_id == user.id}
     end
 end

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     member { get :delete }
   end
   resources :movies, only: [:index, :new, :create]
+
+  put '/movie/:id/like', to: 'movies#like', as: 'like'
+  put '/movie/:id/unlike', to: 'movies#unlike', as: 'unlike'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "welcome#home"
